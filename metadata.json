@@ -1,0 +1,7 @@
+{
+  "name": "One! Blue - Lavanderia Self-Service",
+  "description": "Landing page de alta conversão para lavanderia self-service 24h, com foco em modernidade, conforto e praticidade.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
