@@ -314,7 +314,7 @@ const App = () => {
       
       <Hero />
 
-      {/* Pricing Table (Moved below Hero) */}
+      {/* Pricing Table */}
       <section id="precos" className="py-24 bg-[#F8F9FA]">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -391,7 +391,7 @@ const App = () => {
         </div>
         
         <div className="marquee-container flex">
-          <div className="marquee-track flex animate-[scroll_40s_linear_infinite]">
+          <div className="marquee-track flex animate-scroll">
              {[...STRUCTURE_IMAGES, ...STRUCTURE_IMAGES].map((url, idx) => (
                <div key={idx} className="w-[300px] h-[400px] p-3 flex-shrink-0">
                  <div className="w-full h-full rounded-3xl overflow-hidden shadow-lg border border-gray-100 group relative bg-gray-100">
@@ -470,7 +470,7 @@ const App = () => {
         </div>
 
         <div className="marquee-container flex">
-          <div className="marquee-track flex animate-[scroll_50s_linear_infinite] hover:[animation-play-state:paused]">
+          <div className="marquee-track flex animate-scroll hover:[animation-play-state:paused]">
              {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
                <div key={i} className="w-[350px] p-4 flex-shrink-0">
                  <div className="bg-white/5 backdrop-blur-sm p-8 rounded-[2.5rem] border border-white/10 h-full flex flex-col shadow-2xl">
