@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { 
   COLORS, 
-  VIDEO_HERO_URL, 
+  LOGO_URL,
   VIDEO_INTRO_URL,
   VIDEO_SHOWCASE_URL, 
   VIDEO_DELIVERY_URL, 
@@ -53,8 +53,8 @@ const Header = () => {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A192F] py-3 shadow-lg' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <div className="bg-white p-1 rounded">
-             <span className="text-[#0A192F] font-black text-2xl tracking-tighter">ONE!<span className="text-[#00B2E2]">BLUE</span></span>
+          <div className="bg-white p-1 rounded overflow-hidden h-12 flex items-center justify-center">
+             <img src={LOGO_URL} alt="One! Blue Logo" className="h-full object-contain" />
           </div>
         </div>
         
@@ -70,7 +70,7 @@ const Header = () => {
           href="https://wa.link/7mzm9x" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-[#00B2E2] text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform"
+          className="bg-[#00B2E2] text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-[#1D9BF0] transition-all hover:scale-105"
         >
           <MessageCircle size={18} />
           Fale Conosco
@@ -82,27 +82,19 @@ const Header = () => {
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-end justify-center overflow-hidden pb-40">
-      <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src={VIDEO_HERO_URL} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/40" />
+    <section className="relative h-screen flex items-end justify-center overflow-hidden pb-40 bg-gradient-to-br from-[#0A192F] via-[#00B2E2] to-[#1D9BF0]">
+      <div className="absolute inset-0 z-0 opacity-20">
+        {/* Camada sutil para textura no gradiente */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 text-center text-white">
-        <h1 className="text-3xl md:text-6xl font-extrabold mb-4 leading-tight bg-gradient-to-b from-white via-white to-[#00B2E2] bg-clip-text text-transparent drop-shadow-sm">
+        <h1 className="text-4xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
           Lavanderia Self-Service 24h:<br />
-          Lava, Seca e Dobra.
+          <span className="bg-gradient-to-b from-white via-white to-[#BEEFFF] bg-clip-text text-transparent">Lava, Seca e Dobra.</span>
         </h1>
-        <p className="text-sm md:text-xl max-w-2xl mx-auto opacity-90 font-light tracking-wide">
-          Simplificando sua rotina com tecnologia, conforto e insumos premium já inclusos. Sai prontinho!
+        <p className="text-lg md:text-2xl max-w-3xl mx-auto font-medium tracking-wide drop-shadow-md text-white/95">
+          Simplificando sua rotina com tecnologia, conforto e insumos premium já inclusos. <span className="text-[#00B2E2] font-bold">Sai prontinho!</span>
         </p>
       </div>
 
@@ -145,7 +137,7 @@ const IntroVideo = () => {
           
           <button 
             onClick={toggleMute}
-            className="absolute bottom-8 right-8 bg-[#00B2E2] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2 z-10"
+            className="absolute bottom-8 right-8 bg-[#00B2E2] text-white p-4 rounded-full shadow-2xl hover:scale-110 hover:bg-[#1D9BF0] transition-all flex items-center gap-2 z-10"
           >
             {isMuted ? (
               <>
@@ -218,7 +210,7 @@ const DeliverySection = () => {
               href="https://wa.link/7mzm9x" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-xl"
+              className="inline-flex items-center gap-3 bg-[#00B2E2] text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-[#1D9BF0] transition-all hover:scale-105 shadow-xl"
             >
               <MessageCircle size={24} />
               Pedir Delivery no WhatsApp
@@ -281,7 +273,7 @@ const PricingCard: React.FC<{ plan: PricePlan }> = ({ plan }) => (
         </li>
       ))}
     </ul>
-    <button className="w-full py-4 rounded-xl bg-[#0A192F] text-white font-bold hover:bg-[#00B2E2] transition-colors">
+    <button className="w-full py-4 rounded-xl bg-[#00B2E2] text-white font-bold hover:bg-[#1D9BF0] transition-all hover:scale-[1.02]">
       Pagar na Máquina
     </button>
   </div>
@@ -446,7 +438,7 @@ const App = () => {
                     href={profile.url} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#0A192F] text-white py-4 rounded-xl font-bold hover:bg-[#00B2E2] transition-colors"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#00B2E2] text-white py-4 rounded-xl font-bold hover:bg-[#1D9BF0] transition-all hover:scale-[1.02] shadow-md"
                   >
                     <ExternalLink size={18} />
                     Deixar Avaliação
@@ -532,7 +524,7 @@ const App = () => {
               href="https://www.instagram.com/one_blue.lavanderia_dom_eliseu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white px-10 py-5 rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-2xl text-center"
+              className="inline-flex items-center gap-3 bg-[#00B2E2] text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-[#1D9BF0] transition-all hover:scale-105 shadow-2xl text-center"
             >
               <Instagram size={28} />
               Seguir no Instagram
@@ -654,8 +646,8 @@ const App = () => {
       {/* Footer */}
       <footer className="bg-[#0A192F] py-16 border-t border-white/5">
         <div className="container mx-auto px-6 text-center text-gray-400">
-           <div className="bg-white p-2 rounded inline-block mb-8">
-             <span className="text-[#0A192F] font-black text-2xl tracking-tighter">ONE!<span className="text-[#00B2E2]">BLUE</span></span>
+           <div className="bg-white p-2 rounded inline-block mb-8 h-12">
+             <img src={LOGO_URL} alt="One! Blue Logo" className="h-full object-contain" />
            </div>
            <div className="flex justify-center gap-8 mb-8 text-sm uppercase tracking-widest font-bold">
              <a href="#sobre" className="hover:text-white transition-colors">Sobre</a>
@@ -675,7 +667,7 @@ const App = () => {
         href="https://wa.link/7mzm9x" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 animate-bounce hover:scale-110 transition-transform"
+        className="fixed bottom-8 right-8 bg-[#00B2E2] text-white p-4 rounded-full shadow-2xl z-50 animate-bounce hover:bg-[#1D9BF0] transition-all hover:scale-110"
       >
         <MessageCircle size={32} />
       </a>
