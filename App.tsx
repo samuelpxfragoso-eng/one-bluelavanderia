@@ -273,9 +273,15 @@ const PricingCard: React.FC<{ plan: PricePlan }> = ({ plan }) => (
         </li>
       ))}
     </ul>
-    <button className="w-full py-4 rounded-xl bg-[#00B2E2] text-white font-bold hover:bg-[#1D9BF0] transition-all hover:scale-[1.02]">
-      Pagar na Máquina
-    </button>
+    <a 
+      href="https://wa.link/7mzm9x"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full py-4 rounded-xl bg-[#00B2E2] text-white font-bold hover:bg-[#1D9BF0] transition-all hover:scale-[1.02] flex items-center justify-center gap-2 shadow-lg"
+    >
+      <MessageCircle size={20} />
+      Chamar no WhatsApp
+    </a>
   </div>
 );
 
