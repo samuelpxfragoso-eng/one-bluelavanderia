@@ -50,10 +50,10 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A192F] py-3 shadow-lg' : 'bg-transparent py-6'}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A192F]/95 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <div className="bg-white p-1 rounded overflow-hidden h-12 flex items-center justify-center">
+          <div className="bg-white p-1 rounded overflow-hidden h-10 md:h-12 flex items-center justify-center shadow-md">
              <img src={LOGO_URL} alt="One! Blue Logo" className="h-full object-contain" />
           </div>
         </div>
@@ -70,7 +70,7 @@ const Header = () => {
           href="https://wa.link/7mzm9x" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-[#00B2E2] text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-[#1D9BF0] transition-all hover:scale-105"
+          className="bg-[#00B2E2] text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-[#1D9BF0] transition-all hover:scale-105 shadow-lg text-sm md:text-base"
         >
           <MessageCircle size={18} />
           Fale Conosco
@@ -82,23 +82,53 @@ const Header = () => {
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-end justify-center overflow-hidden pb-40 bg-gradient-to-br from-[#0A192F] via-[#00B2E2] to-[#1D9BF0]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24 bg-gradient-to-br from-[#0A192F] via-[#00B2E2] to-[#1D9BF0]">
       <div className="absolute inset-0 z-0 opacity-20">
-        {/* Camada sutil para textura no gradiente */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/30 via-transparent to-transparent" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 text-center text-white">
-        <h1 className="text-4xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+        {/* Logo at the Top */}
+        <div className="mb-10 flex justify-center">
+          <div className="bg-white p-3 md:p-4 rounded-[2rem] overflow-hidden h-24 md:h-36 flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-500">
+            <img src={LOGO_URL} alt="One! Blue Logo" className="h-full object-contain" />
+          </div>
+        </div>
+
+        <h1 className="text-4xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tight drop-shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
           Lavanderia Self-Service 24h:<br />
-          <span className="bg-gradient-to-b from-white via-white to-[#BEEFFF] bg-clip-text text-transparent">Lava, Seca e Dobra.</span>
+          <span className="bg-gradient-to-b from-white via-white to-[#BEEFFF] bg-clip-text text-transparent italic">Lava, Seca e Dobra.</span>
         </h1>
-        <p className="text-lg md:text-2xl max-w-3xl mx-auto font-medium tracking-wide drop-shadow-md text-white/95">
-          Simplificando sua rotina com tecnologia, conforto e insumos premium já inclusos. <span className="text-[#00B2E2] font-bold">Sai prontinho!</span>
+        
+        <p className="text-lg md:text-2xl max-w-3xl mx-auto font-medium tracking-wide drop-shadow-lg text-white/95 leading-relaxed">
+          Simplificando sua rotina com tecnologia, conforto e insumos premium já inclusos. <br className="hidden md:block" />
+          <span className="text-[#BEEFFF] font-black underline decoration-[#00B2E2] decoration-4 underline-offset-4">Sai prontinho para o seu guarda-roupa!</span>
         </p>
+
+        <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
+          <a 
+            href="#precos" 
+            className="bg-white text-[#0A192F] px-8 py-4 rounded-2xl font-black text-lg hover:bg-gray-100 transition-all shadow-xl hover:scale-105"
+          >
+            Ver Preços
+          </a>
+          <a 
+            href="https://wa.link/7mzm9x" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-[#00B2E2] text-white px-8 py-4 rounded-2xl font-black text-lg hover:bg-[#1D9BF0] transition-all shadow-xl border-2 border-white/20 hover:scale-105 flex items-center gap-3"
+          >
+            <MessageCircle size={24} />
+            Chamar no WhatsApp
+          </a>
+        </div>
       </div>
 
       <div className="absolute bottom-0 left-0 w-full h-32 smoky-transition z-20" />
+      
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/50 hidden md:block">
+        <ChevronDown size={32} />
+      </div>
     </section>
   );
 };
